@@ -20,7 +20,7 @@ public class HomeTest {
     public void homePage(){
         driver.get("https://qa.biosafeapp.com/");
         String title = driver.getTitle();
-        Assert.assertEquals(title,"BioSafeApp");
+        Assert.assertEquals(title,"BioSafeAppp");
     }
 
 
