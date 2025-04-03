@@ -1,27 +1,27 @@
 pipeline {
     agent any
-
+    triggers {
+        pollSCM('* * * * *') // Opcional si no quieres usar Webhooks
+    }
     stages {
-        stage("Build") { // Comillas rectas
+        stage('Build') {
             steps {
                 script {
-                    bat 'mvn clean install' // Usa 'bat' en Windows
+                    sh 'mvn clean install'
                 }
             }
         }
-
-        stage("Test") {
+        stage('Test') {
             steps {
                 script {
-                    bat 'mvn test' // Cambiado a 'bat' para Windows
+                    sh 'mvn test'
                 }
             }
         }
-
-        stage("Deploy") {
+        stage('Deploy') {
             steps {
                 script {
-                    echo 'Desplegando la aplicación...'
+                    echo 'Desplegando la aplicación…'
                 }
             }
         }
